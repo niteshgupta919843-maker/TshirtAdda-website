@@ -1,507 +1,417 @@
+/* ===============================
+   GOOGLE FONT
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-:root{
-    --primary-color: ; /* Dark Black/Navy for text/backgrounds */
-    --accent-color: #e74c3c; /* Bold Red/Coral for accent */
-    --light-bg: #f#2c3e505f5f5;
-    --text-dark: #333;
-    --text-light: #fff;
-    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --border-radius: 6px;
+/* ===============================
+   ROOT VARIABLES (COLORS)
+================================ */
+:root {
+    --primary: #6C63FF;
+    --secondary: #FF6584;
+    --dark: #1e1e2f;
+    --light: #f8f9ff;
+    --card: rgba(255,255,255,0.9);
+    --text: #333;
+    --glass: rgba(255,255,255,0.15);
 }
 
-*{
+/* ===============================
+   RESET CSS
+================================ */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif ;
-    line-height:1.6 ;
-    color: var(--text-dark);
-    background-color:white;
+body {
+    background: linear-gradient(120deg, #fdfbfb, #ebedee);
+    color: var(--text);
 }
 
-h1 , h2 , h3{
-
-    margin-bottom: 0.5em;
-}
-
-
-a{
-    text-decoration:none ;
-    color: var(--text-dark);
-    
-}
-
-a:hover{
-    color: var(--accent-color);
-}
-
-
-.navbar{
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background-color: var(--text-light);
-    box-shadow: 0 2px 4px rgba(0,0,0, 0.05);
+    padding: 15px 6%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-.navbar .logo img{
-    border-radius: 100%;
+
+.logo {
+    display: flex;
+    gap: 10px;
     align-items: center;
-}
-.navbar .logo{
-
-    font-size: 1.7rem;
     font-weight: 700;
-    color: var(--primary-color);
-    color: var(--accent-color);
+    font-size: 1.3rem;
 }
 
-.nav-links{
+.logo img {
+    border-radius: 8px;
+}
+
+.nav-links a {
+    margin: 0 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    background: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 15px;
 }
 
-.nav-links a{
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.95em;
-}
-
-.nav-actions{
+.search-bar {
     display: flex;
-    border: 1px solid #ddd; 
-    border-radius: var(--border-radius);
+    background: white;
+    border-radius: 30px;
     overflow: hidden;
 }
 
-.search-bar input{
-    padding: 8px 10px ;
+.search-bar input {
     border: none;
- font-family:'Poppins', sans-serif;  
- width: 200px; 
+    outline: none;
+    padding: 8px 14px;
+    width: 180px;
 }
 
-.search-bar button{
-  background-color: var(--primary-color);
-    color: var(--text-dark);
+.search-bar button {
+    background: var(--primary);
+    color: white;
     border: none;
-    padding: 8px 12px ;
+    padding: 8px 14px;
     cursor: pointer;
-    transition: background-color 0.3s;
-
-}
-.search-bar button:hover{
-    background-color: var(--accent-color);
 }
 
-.Login-btn{
-border: 2px solid;
-background-color: #fff;
-z-index: 1000;
-cursor: pointer;
-padding: 7px 25px;
-border-radius: 20%;
-
-
-}
-
-
-.Login-btn:hover{
-    background-color:var(--accent-color);
-}
-.cart-btn{
- 
-    background: none;
+.Login-btn, .cart-btn {
+    background: white;
+    color: var(--primary);
     border: none;
-    color: var(--primary-color);
-    font-size: 1.2rem;
- cursor: pointer;
- position: relative;
- padding:0 5px;
-
-
-
-}
-#cart-count{
-      position: absolute;
-    top: 0;
-    right: 0;
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    font-size: 0.5em;
-    border-radius: 50%;
-    padding: 2px 5px;
-    line-height: 1;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-
-/* Hero Section */
-.hero-section{
-background:url('https://thebearhouse.com/cdn/shop/files/collection_banner_mobile-02_0a40847e-6fdc-4a23-b2d4-cf0881280cbe.jpg?format=webp&v=1761133722&width=750') no-repeat center center/cover;
-height: 70vh;
-display: flex;
-
+.Login-btn:hover,
+.cart-btn:hover {
+    background: var(--dark);
+    color: white;
 }
 
-section {
-    padding: 40px 5%;
-    text-align: center;
+/* ===============================
+   HERO SECTION
+================================ */
+.hero-section {
+    height: 90vh;
+    background: linear-gradient(135deg, #6C63FFcc, #FF6584bb),
+                url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 8%;
+    color: white;
 }
 
 .hero-content {
-    z-index: 1;
+    max-width: 500px;
+    animation: fadeInUp 1s ease;
 }
 
 .hero-content h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 15px;
 }
 
 .hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    font-weight: 300;
-    color: whitesmoke;
+    opacity: 0.9;
 }
 
 .cta-button {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    padding: 12px 30px;
-    border-radius: 30px; /* Rounded button */
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: background-color 0.3s, transform 0.2s;
     display: inline-block;
-    border: 2px solid var(--accent-color);
-    align-items: center;
-    margin-top: 100px;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: white;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #c0392b; /* Darker red on hover */
-    transform: translateY(-2px);
+    background: var(--dark);
+    color: white;
 }
 
-section h2 {
-    font-size: 2em;
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-    
-}
-
-
-section h2::after {
-    content: "";
-    display: block;
-    width: 80%;
-    height: 3px;
-    background-color: var(--accent-color);
-    margin: 5px auto 0;
-}
-
-
-.tshirt-selling-section h2 {
+/* ===============================
+   PRODUCTS SECTION
+================================ */
+.products-section {
     text-align: center;
-    padding: 40px 0 20px;
-    color: #333;
-    font-weight: 600;
+    padding: 60px 5%;
 }
 
-/* --- Grid Container (The Core Layout) --- */
+.products-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+/* ===============================
+   GRID
+================================ */
 .tshirt-grid-container {
     display: grid;
-    /* This defines a responsive grid */
-    /* It repeats a column with a minimum width of 250px and a maximum of 1fr (1 fraction of the available space) */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; /* Space between cards */
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto 50px; /* Center the container */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    padding: 0 5% 50px;
 }
 
-/* --- Product Card Styling --- */
+/* ===============================
+   CARD
+================================ */
 .product-card {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--card);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.35s ease;
+    position: relative;
 }
 
 .product-card:hover {
-    transform: translateY(-5px); /* Subtle lift effect on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .tshirt-image {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    /* Placeholder adjustment: object-fit cover ensures the image fits well */
-    object-fit: cover; 
-    max-height: 280px;
+    height: 280px;
+    object-fit: cover;
 }
 
 .tshirt-name {
-    font-size: 1.25em;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: 700;
+    padding: 10px 15px 0;
+    font-weight: 600;
 }
 
 .tshirt-description {
-    font-size: 0.9em;
+    padding: 0 15px;
+    font-size: 0.85rem;
     color: #666;
-    margin-bottom: 15px;
-    flex-grow: 1; /* Allows the description to take up available space */
-}
-
-.tshirt-description strong {
-    color: #555;
-    font-weight: 600;
 }
 
 .tshirt-price {
-    font-size: 1.5em;
-    color: #27ae60; /* Highlighted color for price */
-    font-weight: 800;
-    margin-bottom: 20px;
+    display: block;
+    padding: 10px 15px;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
-/* --- Buttons Layout and Styling --- */
+/* ===============================
+   BUTTON AREA
+================================ */
 .card-buttons {
     display: flex;
-    gap: 10px; /* Space between the two buttons */
-    margin-top: auto; /* Pushes the buttons to the bottom of the card */
+    gap: 10px;
+    padding: 15px;
 }
 
 .btn {
-    flex: 1; /* Makes both buttons take equal width */
-    padding: 10px 15px;
+    flex: 1;
     border: none;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 0.9em;
-    font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.1s;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.btn:active {
-    transform: scale(0.98);
-}
-
-/* Specific button styles */
 .buy-now {
-    background-color: #e74c3c; /* Reddish-orange color */
+    background: var(--primary);
     color: white;
-}
-
-.buy-now:hover {
-    background-color: #c0392b;
 }
 
 .add-to-cart {
-    background-color: #3498db; /* Blue color */
+    background: var(--secondary);
     color: white;
 }
 
-.add-to-cart:hover {
-    background-color: #2980b9;
+.btn:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
 }
 
-.About-section{
-   
-    padding: 10px 10px ;
+/* ===============================
+   ABOUT & FOOTER
+================================ */
+.About-section {
+    background: var(--dark);
+    color: white;
+    padding: 50px 8%;
 }
 
-
-.About-section h1 {
-    font-size: 2em;
+.about-content h1 {
     margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-    
 }
 
-.About-section h1 {
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 30px;
+    padding: 50px 8%;
+    background: #111;
+    color: white;
+}
 
+.footer-links a,
+.social-links a {
     display: block;
-    
+    text-decoration: none;
+    color: #eee;
+    margin-top: 8px;
 }
 
-
-.about-content h1::after {
-    content: "";
-    display: block;
-    width:20%;
-    height: 3px;
-    background-color: var(--accent-color);
-    margin: 5px auto 0;
-}
-
-
-
-.about-content p2 {
-    color: var(--text-dark);
-}
-
-.social-links{
-
-    text-align: center;
-
-
-}
-.social-links h3{
-    font-size: 2em;
-    align-items: center;
-
-    
-}
-
-hr{
-    margin: 20px;
-    
-}
-
-    
-
-
-.social-links a{
-    font-size: 3em;
-}
-
-.footer-content{
-    display: flex;
-    align-items: flex-start;
-  
-
-
-
-}
-
-.footer-content h3{
-    font-size: 1.8em;
-    
-}
-
-.footer-links a{
-    font-size: 1.2em;
-    display: block;
-}
-
-.footer-brand-info h3{
-    color: var(--accent-color);
-
+.social-links i {
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 
 
-.tshirt-description- h3{
-    font-size: 2em;
-    color: var(--accent-color);
- }
+/* ===============================
+   PERFECT MOBILE RESPONSIVE SCALE
+   Desktop layout but smaller
+================================ */
 
- .tshirt-description-{
-    background-color: antiquewhite;
- }
+@media (max-width: 768px) {
 
+    body {
+        zoom: 0.95;
+    }
 
- 
-/* Mobile Adjustments (Max Width 640px) */
-@media (max-width: 640px) {
-    /* Navbar: Stack elements, hide links, restructure actions */
     .navbar {
+        flex-direction: row;
         flex-wrap: wrap;
-        padding: 10px 5%;
+        padding: 10px 4%;
     }
 
-    .navbar .logo {
-        font-size: 1.5rem;
+    .logo {
+        font-size: 1rem;
     }
 
-    .nav-links {
-        display: none; /* Hide main navigation links on small screens */
-    }
-
-    .nav-actions {
-        order: 3; /* Push actions to the new line below logo/cart */
-        width: 100%; /* Take full width for better search bar placement */
-        margin-top: 10px;
-        box-shadow: var(--shadow-light);
-    }
-    
-    .search-bar {
-        /* Ensure search bar takes remaining space for responsive input */
-        flex-grow: 1; 
-        display: flex;
+    .nav-links a {
+        font-size: 0.75rem;
+        margin: 0 6px;
     }
 
     .search-bar input {
-        width: 100%; /* Input takes full width of the search container */
-    }
-    
-    .Login-btn {
-        padding: 5px 15px;
-        font-size: 0.9em;
+        width: 110px;
+        font-size: 0.7rem;
     }
 
-    /* Hero Section: Center content, reduce height and font size */
+    .Login-btn,
+    .cart-btn {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+
+    /* HERO SECTION */
     .hero-section {
-        height: 50vh;
-        align-items: center;
-        text-align: center;
-    }
-    .hero-content h1 {
-        font-size: 2.2em;
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-    .cta-button {
-        margin-top: 20px;
-        padding: 10px 20px;
-    }
-    
-    /* Product Grid: Force single column stack */
-    .tshirt-grid-container {
-        grid-template-columns: 1fr; 
-        padding: 10px;
-    }
-    .product-card {
-        padding: 15px;
-    }
-    
-    /* About and Social */
-    .About-section h1 {
-        font-size: 1.5em;
-    }
-    .social-links a {
-        font-size: 2em;
+        height: 70vh;
+        padding: 6%;
     }
 
-    /* Footer Stack */
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .cta-button {
+        font-size: 0.75rem;
+        padding: 8px 18px;
+    }
+
+    /* PRODUCT TITLE */
+    .products-section h2 {
+        font-size: 1.5rem;
+    }
+
+    /* GRID SAME RAHE BUT SIZE CHHOTA */
+    .tshirt-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+    }
+
+    /* CARD SIZE REDUCED */
+    .tshirt-image {
+        height: 180px;
+    }
+
+    .tshirt-name {
+        font-size: 0.8rem;
+    }
+
+    .tshirt-description {
+        font-size: 0.65rem;
+    }
+
+    .tshirt-price {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        padding: 7px;
+        font-size: 0.65rem;
+    }
+
+    /* ABOUT & FOOTER */
+    .About-section,
     .footer-content {
-        flex-direction: column; /* Stack all footer sections vertically */
-        gap: 20px;
-        align-items: center;
+        padding: 30px 5%;
+        font-size: 0.75rem;
     }
-    .footer-brand-info, .footer-links {
-        width: 100%;
-        text-align: center;
+
+    .footer-links h3,
+    .footer-brand-info h3,
+    .social-links h3 {
+        font-size: 0.9rem;
     }
-    .footer-links a {
-        margin: 5px 0;
+
+    .social-links i {
+        font-size: 0.8rem;
     }
 }
